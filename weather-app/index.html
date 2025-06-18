@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Global Weather App</h1>
+            <form id="search-form" onsubmit="handleSearch(); return false;">
+                <div class="search-container">
+                    <input type="text" id="city-input" placeholder="Enter city name...">
+                    <button id="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <div class="units-toggle">
+                <button id="celsius-btn" class="active">°C</button>
+                <button id="fahrenheit-btn">°F</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+
+            <div id="error-message" class="hidden">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="error-text"></p>
+            </div>
+
+            <div id="weather-container" class="hidden">
+                <div class="location-info">
+                    <h2 id="location-name">City Name</h2>
+                    <p id="coordinates">Lat: 0.00, Lon: 0.00</p>
+                </div>
+
+                <div class="weather-main">
+                    <div class="weather-icon">
+                        <i id="weather-icon" class="fas fa-sun"></i>
+                    </div>
+                    <div class="temperature">
+                        <h2 id="temperature">0°</h2>
+                        <p id="feels-like">Feels like: 0°</p>
+                    </div>
+                    <div class="condition">
+                        <p id="weather-condition">Clear Sky</p>
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <div class="detail-info">
+                            <p class="detail-label">Humidity</p>
+                            <p id="humidity">0%</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <div class="detail-info">
+                            <p class="detail-label">Wind</p>
+                            <p id="wind">0 km/h</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-compress-alt"></i>
+                        <div class="detail-info">
+                            <p class="detail-label">Pressure</p>
+                            <p id="pressure">0 hPa</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cloud"></i>
+                        <div class="detail-info">
+                            <p class="detail-label">Cloudiness</p>
+                            <p id="cloudiness">0%</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-umbrella"></i>
+                        <div class="detail-info">
+                            <p class="detail-label">Precipitation</p>
+                            <p id="precipitation">0 mm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Storm Map Section -->
+            <div id="storm-map-container" class="storm-map-container">
+                <h2>Global Storm Tracker</h2>
+                <div id="storm-map-toggle" class="storm-map-toggle">Show Storm Map (Multiple View Options Available)</div>
+                
+                <div id="storm-map" class="storm-map">
+                    <iframe id="windy-iframe" src="https://embed.windy.com/embed2.html?lat=0&lon=0&detailLat=0&detailLon=0&width=650&height=450&zoom=2&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0" width="100%" height="100%"></iframe>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Data provided by <a href="https://open-meteo.com/" target="_blank">Open-Meteo API</a></p>
+            <p>© 2025 Global Weather App</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
