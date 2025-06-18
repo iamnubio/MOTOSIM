@@ -664,7 +664,7 @@ function toggleStormMap() {
         // Add a notification about map options - make it more visible
         const mapNotification = document.createElement('div');
         mapNotification.className = 'map-notification';
-        mapNotification.innerHTML = '<p><strong>Map Options Available:</strong> Click the menu icon <i class="fas fa-bars"></i> in the bottom right corner of the map to change view options (rain, wind, temperature, etc.)</p>';
+        mapNotification.innerHTML = '<p><strong>Map Options Available:</strong> Click the menu icon <i class="fas fa-bars"></i> in the top right corner of the map to change view options (rain, wind, temperature, etc.)</p>';
         mapNotification.style.cssText = 'background-color: rgba(52, 152, 219, 0.95); color: white; padding: 15px; border-radius: 5px; margin: 0 auto 15px auto; text-align: center; font-size: 16px; max-width: 100%; position: relative; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.3); border: 2px solid #2980b9;';
         
         // Add a style for the icon
